@@ -6,3 +6,6 @@ out
 *.iws
 .idea
 .gradle
+.settings/*
+.classpath
+.project
