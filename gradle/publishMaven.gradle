@@ -15,7 +15,7 @@ publishing {
             pom.withXml {
                 def root = asNode()
                 root.appendNode('name', 'To Do application')
-                root.appendNode('description', 'A simple task management application.')
+                root.appendNode('description', 'A simple task management application for the todo master.')
             }
         }
     }

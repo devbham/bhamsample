@@ -1,8 +1,8 @@
 binaryRepository {
     baseUrl = 'http://localhost:8081/artifactory'
     releaseUrl = "$baseUrl/libs-release-local"
-    username = 'admin'
-    password = 'password'
+    username = 'deployer'
+    password = 'Akacity77'
 }
 
 environments {
