@@ -6,6 +6,13 @@ sonarRunner {
     sonarProperties {
         property 'sonar.projectName', 'todo'
         property 'sonar.projectDescription', 'A task management application'
+		
+		//Configuration for the MySql sonar database
+		property "sonar.host.url", "http://localhost:9000"
+		property "sonar.jdbc.url", "jdbc:mysql://localhost/sonar"
+		property "sonar.jdbc.driverClassName", "com.mysql.jdbc.Driver"
+		property "sonar.jdbc.username", "sonar"
+		property "sonar.jdbc.password", "sonar"
     }
 }
 
