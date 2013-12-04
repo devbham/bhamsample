@@ -22,6 +22,7 @@ allprojects {
     group = 'com.manning.gia'
 	version = project.version
 	status = 'integration'
+	
 }
 
 subprojects {
