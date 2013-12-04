@@ -4,7 +4,8 @@ gradle.projectsLoaded {
 		buildscript {
 			repositories {
 			//mavenRepo ( urls: 'http://localhost:8081/artifactory/gradle').setChecksums('sha1')
-			maven{				
+			
+				maven{				
 				//url "http://repo.jfrog.org/artifactory/gradle"
 				url "http://localhost:8081/artifactory/gradle"
 			}
