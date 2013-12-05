@@ -5,8 +5,10 @@ apply from: "$rootDir/gradle/downloadWar.gradle"
 
 ext {
     warFile = configurations.todo.singleFile
-    tomcatRemoteDir = '/opt/apache-tomcat-7.0.42'
-
+    //tomcatRemoteDir = '/opt/apache-tomcat-7.0.42'
+	tomcatRemoteDir = 'C:\\opt\\apache-tomcat-8.0.0-RC5'
+	
+	
     userHome = System.properties['user.home']
     vagrantKeyFile = file("$userHome/.vagrant.d/insecure_private_key")
     remoteTmpDir = "$config.server.username@$config.server.hostname:/tmp"

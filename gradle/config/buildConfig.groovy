@@ -1,12 +1,13 @@
 binaryRepository {
     baseUrl = 'http://localhost:8081/artifactory'
-    releaseUrl = "$baseUrl/libs-release-local"
+	//releaseUrl = "$baseUrl/libs-release-local"
+	releaseUrl = "$baseUrl/bham-local"
     username = 'deployer'
     password = 'Akacity77'
 }
 
 environments {
-    test {
+    test { 
         server {
             hostname = 'localhost'
             sshPort = 22
