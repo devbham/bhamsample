@@ -4,6 +4,7 @@ binaryRepository {
 	releaseUrl = "$baseUrl/bham-local"
     username = 'deployer'
     password = 'Akacity77'
+	repositoryName = 'bham-local'
 }
 
 environments {

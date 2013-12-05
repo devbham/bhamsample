@@ -18,7 +18,6 @@ sonarRunner {
 
 allprojects {
     apply plugin: 'idea'
-	apply plugin: 'artifactory'
     group = 'com.manning.gia'
 	version = project.version
 	status = 'integration'
@@ -48,30 +47,6 @@ task wrapper(type: Wrapper) {
     gradleVersion = '1.8'
 }
 
-artifactory {
-	contextUrl = 'http://localhost:8081/artifactory'   //The base Artifactory URL if not overridden by the publisher/resolver
-	
-	publish {
-			  //A closure defining publishing information
-			  repository {
-				repoKey = 'bham-local'   //The Artifactory repository key to publish to // or  integration-libs
-				username = "deployer"          //The publisher user name
-				password = "{DESede}v0N2P/mQ0/Xql0Hc0Cbm/Q=="       //The publisher password
-			  }
-			  defaults {
-				  publishConfigs('archives', 'published')
-				  properties = ['build.status': "integration"]
-			  }
-	}
-	
-	resolve {
-			  repository {
-				repoKey = 'bham'  //The Artifactory (preferably virtual) repository key to resolve from //or 'gradle' 'libs-releases'
-				username = "deployer"
-				password = "{DESede}v0N2P/mQ0/Xql0Hc0Cbm/Q=="
-			  }
-	}
-  }
 
 
 

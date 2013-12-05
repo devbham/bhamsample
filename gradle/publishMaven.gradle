@@ -2,6 +2,7 @@ apply plugin: 'maven-publish'
 
 ext {
     artifactoryReleaseRepoUrl = config.binaryRepository.releaseUrl
+	artifactoryRepositoryName = config.binaryRepository.repositoryName
     artifactoryUsername = project.hasProperty('artifactoryUsername') ? project.getProperty('artifactoryUsername') : null
     artifactoryPassword = project.hasProperty('artifactoryPassword') ? project.getProperty('artifactoryPassword') : null
 }
@@ -22,11 +23,11 @@ publishing {
 
     repositories {
         maven {
-            name 'remoteArtifactory'
+            name artifactoryRepositoryName
             url artifactoryReleaseRepoUrl
 
             credentials {
-                username = artifactoryUsername                                 
+                username = artifactoryUsername                              
                 password = artifactoryPassword
             }
         }   
