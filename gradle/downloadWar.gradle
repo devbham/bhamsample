@@ -23,4 +23,5 @@ task fetchToDoWar(type: Copy) {
     into downloadDir
 	
 //	println "\n\nDownload Directory: " + downloadDir.toString()
+	
 }

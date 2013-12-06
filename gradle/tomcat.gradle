@@ -1,0 +1,31 @@
+
+ext {
+	tomcatHome = "C:\\opt\\apache-tomcat-8.0.0-RC5"	
+	tomcatBin = tomcatHome + "\\bin"
+	tomcatStartScript = tomcatBin + "\\startup.bat"
+	tomcatStopScript = tomcatBin + "\\shutdown.bat"
+	tomcatWebappDir = tomcatHome + "\\webapps"
+}
+
+task stopTomcat (type:Exec) {
+	workingDir tomcatBin
+	commandLine 'cmd', '/c', tomcatStopScript
+}
+
+task startTomcat (type:Exec) {
+	workingDir tomcatBin
+	commandLine 'cmd', '/c', tomcatStartScript
+}
+
+task copyWarToTomcat (type: Copy, dependsOn: assemble) {
+	
+	from "$libsDir"
+	into tomcatWebappDir
+	include '*.war'	
+}
+
+task deployToTomcat (dependsOn: copyWarToTomcat) {
+	doLast{
+		startTomcat.execute()
+	}
+}

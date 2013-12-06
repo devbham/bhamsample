@@ -18,6 +18,7 @@ sonarRunner {
 
 allprojects {
     apply plugin: 'idea'
+	apply plugin: 'groovy'	
     group = 'com.manning.gia'
 	version = project.version
 	status = 'integration'
@@ -46,7 +47,6 @@ subprojects {
 task wrapper(type: Wrapper) {
     gradleVersion = '1.8'
 }
-
 
 
 
