@@ -25,7 +25,7 @@ task copyWarToTomcat (type: Copy, dependsOn: assemble) {
 }
 
 task deployToTomcat (dependsOn: copyWarToTomcat) {
-	doLast{
-		startTomcat.execute()
-	}
+//	doLast{
+//		startTomcat.execute()
+//	}
 }

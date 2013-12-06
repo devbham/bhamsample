@@ -7,7 +7,6 @@ binaryRepository {
 	repositoryName = 'bham-local'
 }
 
-
 environments {
     test { 
         server {
