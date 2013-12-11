@@ -1,5 +1,5 @@
 binaryRepository {
-    baseUrl = 'http://localhost:8081/artifactory'
+    baseUrl = 'http://bhamdevrep001:8081/artifactory'
 	//releaseUrl = "$baseUrl/libs-release-local"
 	releaseUrl = "$baseUrl/bham-local"
     username = 'deployer'

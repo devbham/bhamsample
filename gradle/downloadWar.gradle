@@ -16,12 +16,12 @@ ext.downloadDir = file("$buildDir/download/artifacts")
 
 task fetchToDoWar(type: Copy) {
 	
-//	println "\n\nFrom: " + configurations.todo.singleFile
+	logger.quiet("\nStart fetching war to download from: " + config.binaryRepository.releaseUrl )
 	
     from configurations.todo
 	
     into downloadDir
 	
-//	println "\n\nDownload Directory: " + downloadDir.toString()
+	logger.quiet("\nSaving war in: " + downloadDir + "\n")
 	
 }
