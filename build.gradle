@@ -16,9 +16,29 @@ sonarRunner {
     }
 }
 
+// for artifactory
+buildscript {
+	repositories {
+		maven {
+			url 'http://localhost:8081/artifactory/bham'
+			credentials {
+				username = "deployer"
+				password = "Akacity77"
+			}
+		}
+		
+	}
+	dependencies {
+		classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.0.9')
+	}
+}
+
 allprojects {
     apply plugin: 'idea'
 	apply plugin: 'groovy'	
+	apply plugin: 'artifactory'
+	apply plugin: 'maven'
+	
     group = 'com.manning.gia'
 	version = project.version
 	status = 'integration'
@@ -48,5 +68,35 @@ task wrapper(type: Wrapper) {
     gradleVersion = '1.9'
 }
 
+///// to be cancell
 
-
+artifactory {
+	contextUrl = "http://localhost:8081/artifactory/"   //The base Artifactory URL if not overridden by the publisher/resolver
+	publish {
+		repository {
+			repoKey = 'bham-local'
+			username = "deployer"
+			password = "Akacity77"
+			maven = true
+			ivy {
+                ivyLayout = '[organization]/[module]/ivy-[revision].xml'
+                artifactLayout = '[organization]/[module]/[revision]/[module]-[revision](-[classifier]).[ext]'
+                mavenCompatible = false
+            }
+		}
+	}
+	resolve {
+		repository {
+			repoKey = 'bham'
+			username = "deployer"
+			password = "Akacity77"
+			maven = true
+			ivy {
+				ivyLayout = '[organization]/[module]/ivy-[revision].xml'
+				artifactLayout = '[organization]/[module]/[revision]/[module]-[revision](-[classifier]).[ext]'
+				mavenCompatible = false
+			}
+			
+		}
+	}
+}

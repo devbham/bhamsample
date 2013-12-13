@@ -1,6 +1,7 @@
 repositories {
-    maven { 
-        url config.binaryRepository.releaseUrl 
+    maven { 	
+        //url config.binaryRepository.releaseUrl
+		url "http://localhost:8081/artifactory/bham"
     }
 }
 
@@ -16,12 +17,12 @@ ext.downloadDir = file("$buildDir/download/artifacts")
 
 task fetchToDoWar(type: Copy) {
 	
-	logger.quiet("\nStart fetching war to download from: " + config.binaryRepository.releaseUrl )
+	//logger.quiet("\nStart fetching war to download from url: " + configurations.todo.singleFile )
 	
     from configurations.todo
 	
     into downloadDir
 	
-	logger.quiet("\nSaving war in: " + downloadDir + "\n")
+	//logger.quiet("\nSaving war in: " + downloadDir + "\n")
 	
 }
